@@ -229,18 +229,14 @@ nav{
     margin-top:15px;
 }
 
-.chat-placeholder{
-    min-height:650px;
-    background:#111;
-    border-radius:20px;
-    border:2px dashed rgba(255,209,0,.25);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    color:var(--yellow);
-    font-weight:600;
+.chat-placeholder {
+    min-height: 650px;
+    background: #111;
+    border-radius: 20px;
+    border: 2px dashed rgba(255,209,0,.25);
+    overflow: hidden;        /* ← dodaj */
+    display: block;          /* ← zmień z flex na block */
+    padding: 0;              /* ← usuń padding jeśli był */
 }
 
 /* Footer */
@@ -374,7 +370,12 @@ footer{
 
         <div class="chat-placeholder">
 
-            <iframe src="https://copilotstudio.microsoft.com/environments/b024a921-1128-e4ca-8979-c4e800a43a50/bots/arekia_ittickets/webchat?__version__=2" frameborder="0" style="width: 100%; height: 100%;"></iframe>
+            <iframe 
+    src="https://copilotstudio.microsoft.com/environments/b024a921-1128-e4ca-8979-c4e800a43a50/bots/arekia_ittickets/webchat?__version__=2" 
+    frameborder="0" 
+    style="width: 100%; height: 650px; display: block; border-radius: 18px;"
+    allow="microphone">
+</iframe>
 
         </div>
 
