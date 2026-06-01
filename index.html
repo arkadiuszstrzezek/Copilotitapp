@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IT Service Desk AI</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --yellow:#FFD100;
+    --yellow-light:#FFE75A;
+    --dark:#0A0A0A;
+    --dark-secondary:#121212;
+    --card:#171717;
+    --text:#FFFFFF;
+    --text-secondary:#A6A6A6;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--dark);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Background */
+
+.background{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    background:
+    radial-gradient(circle at 20% 20%, rgba(255,209,0,.15), transparent 25%),
+    radial-gradient(circle at 80% 30%, rgba(255,209,0,.08), transparent 20%),
+    radial-gradient(circle at 50% 80%, rgba(255,209,0,.10), transparent 30%),
+    #0A0A0A;
+}
+
+/* Navigation */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 8%;
+    border-bottom:1px solid rgba(255,255,255,.05);
+    backdrop-filter: blur(10px);
+}
+
+.logo{
+    font-size:1.6rem;
+    font-weight:800;
+}
+
+.logo span{
+    color:var(--yellow);
+}
+
+/* Hero */
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px;
+}
+
+.hero-content{
+    max-width:1000px;
+}
+
+.badge{
+    display:inline-block;
+    background:rgba(255,209,0,.12);
+    color:var(--yellow);
+    padding:10px 18px;
+    border-radius:999px;
+    font-size:.9rem;
+    margin-bottom:30px;
+    border:1px solid rgba(255,209,0,.2);
+}
+
+.hero h1{
+    font-size:4.5rem;
+    line-height:1.1;
+    font-weight:800;
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:var(--yellow);
+}
+
+.hero p{
+    font-size:1.3rem;
+    color:var(--text-secondary);
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.cta{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 28px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:var(--yellow);
+    color:black;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 30px rgba(255,209,0,.4);
+}
+
+.btn-secondary{
+    border:1px solid rgba(255,255,255,.15);
+    color:white;
+}
+
+/* Features */
+
+.features{
+    padding:100px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:2.5rem;
+}
+
+.section-title p{
+    color:var(--text-secondary);
+    margin-top:10px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.05);
+    backdrop-filter: blur(20px);
+    border-radius:24px;
+    padding:30px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    border-color:rgba(255,209,0,.3);
+}
+
+.card-icon{
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:var(--text-secondary);
+    line-height:1.7;
+}
+
+/* Copilot Section */
+
+.copilot-section{
+    padding:100px 8%;
+}
+
+.copilot-container{
+    background:linear-gradient(
+        145deg,
+        rgba(255,209,0,.08),
+        rgba(255,255,255,.02)
+    );
+
+    border:1px solid rgba(255,209,0,.15);
+    border-radius:30px;
+    padding:40px;
+}
+
+.copilot-header{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.copilot-header h2{
+    font-size:2.4rem;
+}
+
+.copilot-header p{
+    color:var(--text-secondary);
+    margin-top:15px;
+}
+
+.chat-placeholder{
+    min-height:650px;
+    background:#111;
+    border-radius:20px;
+    border:2px dashed rgba(255,209,0,.25);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:var(--yellow);
+    font-weight:600;
+}
+
+/* Footer */
+
+footer{
+    padding:40px;
+    text-align:center;
+    color:#777;
+    border-top:1px solid rgba(255,255,255,.05);
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.8rem;
+}
+
+.hero p{
+    font-size:1rem;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="background"></div>
+
+<nav>
+    <div class="logo">
+        IT<span>Assist</span>
+    </div>
+</nav>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            AI Powered IT Service Desk
+        </div>
+
+        <h1>
+            Zgłoś problem IT
+            <br>
+            <span>w kilka minut</span>
+        </h1>
+
+        <p>
+            Opisz problem własnymi słowami, a nasz inteligentny asystent
+            pomoże zebrać wszystkie informacje potrzebne do utworzenia
+            zgłoszenia i przekazania go do zespołu IT.
+        </p>
+
+        <div class="cta">
+            <a href="#copilot" class="btn btn-primary">
+                Rozpocznij zgłoszenie
+            </a>
+
+            <a href="#features" class="btn btn-secondary">
+                Jak to działa
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="features" id="features">
+
+    <div class="section-title">
+        <h2>Jak możemy pomóc?</h2>
+        <p>Najczęściej zgłaszane problemy</p>
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="card-icon">🔒</div>
+            <h3>Problemy z logowaniem</h3>
+            <p>
+                Reset hasła, blokada konta,
+                problemy z MFA i dostępem do aplikacji.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">💻</div>
+            <h3>Problemy ze sprzętem</h3>
+            <p>
+                Laptop, monitor, drukarka,
+                stacja dokująca lub urządzenia peryferyjne.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">☁️</div>
+            <h3>Microsoft 365</h3>
+            <p>
+                Outlook, Teams, SharePoint,
+                OneDrive i inne usługi chmurowe.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🌐</div>
+            <h3>Sieć i VPN</h3>
+            <p>
+                Problemy z połączeniem,
+                dostępem zdalnym oraz internetem.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="copilot-section" id="copilot">
+
+    <div class="copilot-container">
+
+        <div class="copilot-header">
+            <h2>Porozmawiaj z asystentem IT</h2>
+
+            <p>
+                Opisz problem i odpowiedz na kilka pytań.
+                Asystent automatycznie przygotuje zgłoszenie.
+            </p>
+        </div>
+
+        <div class="chat-placeholder">
+
+            TUTAJ WKLEJ KOD EMBED COPILOT STUDIO
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 IT Service Desk • Powered by Microsoft Copilot Studio
+</footer>
+
+</body>
+</html>
